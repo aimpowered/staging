@@ -5,15 +5,11 @@ Category: Blog
 Tags: Speech-impediment, ASR, wav2vec, kaldi
 slug: blog/atypical-speech-autotune
 Authors: Shaomei Wu
-Summary: I play with a few SOTA speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency.
+Summary: I play with a few state-of-the-art speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency.
 
-# FIXME: Explain acronym throughout? SOTA, WER, ASR, ...
+Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's [wav2vec](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec) has achieved 2.43 WER (Word Error Rate) in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, or people with a thick accent. 
 
-Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's [wav2vec](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec) has achieved 2.43 WER in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, or people with a thick accent. 
-
-I am one of [many](https://twitter.com/kenjilopezalt/status/1295630888600928258) who suffer from speech [fluency disorder](https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/). How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and filler words in my natural speech, and it is a lot worse when I am speaking under pressure or being recorded.
-
-# FIXME: I wanted to suggest linking to https://en.wikipedia.org/wiki/Filler_(linguistics) for "filler words", but it's not currently a very elegant explanation
+I am one of [many](https://twitter.com/kenjilopezalt/status/1295630888600928258) who suffer from speech [fluency disorder](https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/). How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and [filler words](https://en.wikipedia.org/wiki/Speech_disfluency#Fillers) in my natural speech, and it is a lot worse when I am speaking under pressure or being recorded.
 
 Here is a speech sample of me introducing myself, just to give you a flavor.
 
@@ -33,7 +29,7 @@ You can hear lots of uh's and um's in my speech. While I have been work towards 
 
 ## ASR on Atypical Speech
 
-I tried out a few different ASR models to transcribe what I was saying on the audio clip above. 
+I tried out a few different Automatic Speech Recognition (ASR) models to transcribe what I was saying on the audio clip above. 
 
 For easier comparison, here is the manual transcription of my speech:
 
