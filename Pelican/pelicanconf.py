@@ -6,7 +6,7 @@ SITENAME = 'AIMPOWER'
 SITEURL = ''
 
 PATH = 'content'
-ARTICLE_PATHS = ['blog']
+ARTICLE_PATHS = ['blog','demo']
 STATIC_PATHS = ['pages']
 ARTICLE_SAVE_AS = '{slug}.html'
 ARTICLE_URL = '{slug}.html'

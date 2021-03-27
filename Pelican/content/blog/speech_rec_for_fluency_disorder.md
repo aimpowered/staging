@@ -1,9 +1,9 @@
 Title: Speech recognition and enhancement for atypical speech
 Date: 2021-03-28
 Modified: 2021-03-28
-Category: Speech
+Category: Blog
 Tags: Speech-impediment, ASR, wav2vec, kaldi
-slug: atypical-speech-autotune
+slug: blog/atypical-speech-autotune
 Authors: Shaomei Wu
 Summary: I play with a few SOTA speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency.
 

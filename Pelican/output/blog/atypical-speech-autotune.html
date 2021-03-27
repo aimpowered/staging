@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Speech recognition and enhancement for atypical speech - AIMPOWER</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/blog/atypical-speech-autotune.html">
+
+        <meta name="author" content="Shaomei Wu" />
+        <meta name="keywords" content="Speech-impediment,ASR,wav2vec,kaldi" />
+        <meta name="description" content="I play with a few SOTA speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency." />
+
+        <meta property="og:site_name" content="AIMPOWER" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Speech recognition and enhancement for atypical speech"/>
+        <meta property="og:url" content="/blog/atypical-speech-autotune.html"/>
+        <meta property="og:description" content="I play with a few SOTA speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency."/>
+        <meta property="article:published_time" content="2021-03-28" />
+            <meta property="article:section" content="Blog" />
+            <meta property="article:tag" content="Speech-impediment" />
+            <meta property="article:tag" content="ASR" />
+            <meta property="article:tag" content="wav2vec" />
+            <meta property="article:tag" content="kaldi" />
+            <meta property="article:author" content="Shaomei Wu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+AIMPOWER            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-us.html">
+                             About Us
+                          </a></li>
+                        <li class="active">
+                            <a href="/category/blog.html">Blog</a>
+                        </li>
+                        <li >
+                            <a href="/category/demo.html">Demo</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/blog/atypical-speech-autotune.html"
+                       rel="bookmark"
+                       title="Permalink to Speech recognition and enhancement for atypical speech">
+                        Speech recognition and enhancement for atypical speech
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-03-28T00:00:00-07:00"> Sun 28 March 2021</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/speech-impediment.html">Speech-impediment</a>
+        /
+	<a href="/tag/asr.html">ASR</a>
+        /
+	<a href="/tag/wav2vec.html">wav2vec</a>
+        /
+	<a href="/tag/kaldi.html">kaldi</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's <a href="https://github.com/pytorch/fairseq/tree/master/examples/wav2vec">wav2vec</a> has achieved 2.43 WER in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, and people with a thick accent. </p>
+<p>I am one of <a href="https://twitter.com/kenjilopezalt/status/1295630888600928258">many</a> who suffer from speech <a href="https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/">fluency disorder</a>. How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and filler words in my natural speech, and it is a lot worse when I am speaking under pressure or are being recorded.</p>
+<p>Here is a speech sample of me introducing myself, just to give you a flavor.</p>
+<p><audio controls>
+<source src="/media/short_intro.wav">
+Audio element failed...
+</audio></p>
+<p>You can hear lots of uh's and um's in my speech. While I have been work towards accepting my speech pattern and rolling with it, it does cause some inconvenience in my life. For example:</p>
+<ul>
+<li>Speech-based AI interfaces have trouble understanding me;</li>
+<li>When there is a time limit, I can not fit as much content during my time slot as others do;</li>
+<li>People are often confused and distracted by my atypical speech pattern thus pay less attention to what I say;</li>
+<li>It is very hard for me to leave voicemail... </li>
+</ul>
+<h2>ASR on Atypical Speech</h2>
+<p>I tried out a few different ASR models to transcribe what I was saying on the audio clip above. </p>
+<p>For easier comparison, here is the manual transcription of my speech:</p>
+<blockquote>
+<p>Hi my name is Shaomei Wu and I um worked at Facebook. Um my research is at the intersection of um AI and um accessibility. So I try to build empowering AI, um, technology for marginalized communities. </p>
+</blockquote>
+<h3>wav2vec</h3>
+<p>I used the pretrained wav2vec2-base-960h model as documented <a href="https://github.com/pytorch/fairseq/blob/master/examples/wav2vec/README.md#use-wav2vec-20-with-transformers">here</a>. And here is the result:</p>
+<blockquote>
+<p>HI MY NAME IS CHARMARU AND I AM WORK AT FACEBOOK AND MY RESEARCH IS AT THE INTERJECTION OF AM A I AND AM OCCESSIBELITY SO I TRIE TO BEUDE EMPOWERING A I AM TECNOLOGY FOR MAGONOLIZED COMMUNITIES</p>
+</blockquote>
+<p>Since wav2vec is a char-based model, the transcription contains lots of mispellings and non-words. It is definitely hard to understand what I was saying. </p>
+<h3>Google Cloud API</h3>
+<p>Google Cloud's <a href="https://cloud.google.com/speech-to-text/docs/async-time-offsets">speech-to-text API</a> gives more readable transcriptions, together with timestamps.</p>
+<blockquote>
+<p>hi my name is Joe and I worked at Facebook and my research is at the intersection of AI and accessibility so I tried to go to empowering a I realized community</p>
+</blockquote>
+<p>One thing I do not really like about this transcription, despite its readability, is how it dropped all the filler words. We will discuss this further in the next session.</p>
+<h3>SpeechBrain</h3>
+<p><a href="https://speechbrain.github.io/about.html">SpeechBrain</a> is a open-sourced speech recognition toolkit developped and maintained by a large group of academic researchers. It has a bunch of pretrained models that can be easily loaded from huggingface, and the transcription it provides is this:</p>
+<blockquote>
+<p>AYE MY NAME IS SHALL I RUIN I I'M WORKED AT FACE BOOK AND MY RESEARCH IS AT THE INTERSECTION OF AH AYE AND I'M ACCESSIBILITY SO I TRIED TO BUILD EMPIRE IN A TECHNOLOGY FOR MAGINALISED COMMUNITIES</p>
+</blockquote>
+<p>It does run a lot slower than wav2vec or Google cloud speech API, but it seems to achived a good balance between readability and authenticity.</p>
+<h3>Better ASR for Atypical Speech</h3>
+<p>Overall none of these models worked very well with my speech and the WER is significantly higher than what was reported with the benchmark.</p>
+<p>One way to improve the performance of current models on my speech is to tune the models. Models like wav2vec are mostly unsupervised and allow you to train the model using raw speech recording only and tune the base model using a relatively small labeled dataset and the model theoretically should improve after tuning.</p>
+<p>It is still a lot of work to record and transcribe 30mins or hours of my own speech though. One way to make this easier is through data augmentation, a technique I used when training spellchecker for people with dyslexia. More specifically, we could randomly inject filler words into existing training dataset and feed the model with the pertubated data. But for now let's move on and save this for the next blogpost.</p>
+<h2>Auto-tuning Atypical Speech</h2>
+<p>Given that the most obvious thing with my speech is the use of filler words (uhs and ums), I would like to be able to clean them up automatically.</p>
+<p>For this reason, Google's transcription does not work for our use case, since it dropped all the filler words! </p>
+<p>The transcription from SpeechBrain and wav2vec are both workable, as they did catch my "um"s and semi-consistently transcribe them as "I'm" or "AM", respectively. </p>
+<h3>Get timestamps for filler words</h3>
+<p>So now I just need to search the transcription for the filler words and the exact timeframes when they occur. </p>
+<p>Although Google did provide timestamped transcription, their timestamps were not accurate enough for this purpose. Also, they do not even transcribe the filler words, remember?</p>
+<p>SpeechBrain and wav2vec do not provide timestamps for their transcription, but fortunately, we can still align the transcription with the audio file using an open-sourced tool called <a href="https://github.com/lowerquality/gentle/">gentle</a> (which is built on top <a href="https://github.com/kaldi-asr/kaldi">Kaldi</a>) and infer the timestamps of each word in the transcription.</p>
+<h3>Remove filler words from atypical speech</h3>
+<p>After finding all the start and end times for "AM" in the wav2vec transcription, it is easy to programmatically edit out all these timeframes from the original audio through python. </p>
+<p>Here is the result auto-tuned audio. You can noticed that most of the filler words are gone.</p>
+<p><audio controls>
+<source src="/media/de_filler_short_intro.wav">
+Audio element failed...
+</audio></p>
+<h2>Auto-tuning Video with Atypical Speech</h2>
+<p>The similar technique can be used to automatically edit a video to cut out the part with filler words, as shown in this example below.</p>
+<ul>
+<li><a href="/media/intro_video_short.mp4">Original Video</a></li>
+</ul>
+<video controls height="400">
+<source src="/media/intro_video_short.mp4" type="video/mp4">
+Video rendering failed...
+</video>
+
+<ul>
+<li><a href="/media/autotuned_intro_video_short.mp4">Auto-tuned Video</a></li>
+</ul>
+<video controls height="400">
+<source src="/media/autotuned_intro_video_short.mp4" type="video/mp4">
+Video rendering failed...
+</video>
+
+<p>Some extra steps to make this work are:</p>
+<ol>
+<li>
+<p>Extract the audio track from the video</p>
+</li>
+<li>
+<p>Find the timeframes for filler words in original audio/video.</p>
+</li>
+<li>
+<p>Cut the original video.</p>
+</li>
+</ol>
+<p>Note that this type of close-up video is probably not the best demo for this technique, I expect it works better for more static videos like a slide show or instruction videos.</p>
+<h2>Resources</h2>
+<p>The code for producing the results can be found in this <a href="https://colab.research.google.com/drive/1jn8oTaEJRMl9PEKi7jj8zfwnxctxox8u?usp=sharing">notebook</a>. </p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Shaomei Wu
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
