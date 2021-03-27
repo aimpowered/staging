@@ -17,7 +17,6 @@ Here is a speech sample of me introducing myself, just to give you a flavor.
 <source src="{static}/media/short_intro.wav">
 Audio element failed...
 </audio>
-# FIXME: I think adding the "{static}" may fix the audio file problem here and below, but please check that
 
 
 You can hear lots of uh's and um's in my speech. While I have been work towards accepting my speech pattern and rolling with it, it does cause some inconvenience in my life. For example:
