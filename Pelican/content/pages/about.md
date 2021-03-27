@@ -17,8 +17,7 @@ Our principles are:
 - **Partnership**: Equippep and experienced with both community connections and technical expertise, we are eager to partner with different organizations that have been traditionally disconnected.
 
 
-To learn more about our research and past experience, please visit:
+To learn more about our research and past experience, please visit [Shaomei Wu's personal site](https://shaomei.github.io).
 
-- [Shaomei Wu @ Facebook Research](https://research.fb.com/people/wu-shaomei/)
-- [Automatic Alt-text on Facebook](https://about.fb.com/news/2016/04/using-artificial-intelligence-to-help-blind-people-see-facebook/)
-- [Shaomei Wu's Google Scholar Page](https://scholar.google.com/citations?user=Y0xVWqYAAAAJ) 
+The best way to contact us is through email: contact at aimpower.org
+
