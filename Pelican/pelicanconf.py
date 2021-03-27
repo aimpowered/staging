@@ -6,6 +6,11 @@ SITENAME = 'AIMPOWER'
 SITEURL = ''
 
 PATH = 'content'
+ARTICLE_PATHS = ['blog']
+STATIC_PATHS = ['pages']
+ARTICLE_SAVE_AS = '{slug}.html'
+ARTICLE_URL = '{slug}.html'
+#ARTICLE_URL = '{date:%Y}/{slug}.html'
 
 TIMEZONE = 'America/Los_Angeles'
 
