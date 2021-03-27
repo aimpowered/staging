@@ -7,16 +7,21 @@ slug: blog/atypical-speech-autotune
 Authors: Shaomei Wu
 Summary: I play with a few SOTA speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency.
 
-Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's [wav2vec](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec) has achieved 2.43 WER in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, and people with a thick accent. 
+# FIXME: Explain acronym throughout? SOTA, WER, ASR, ...
 
-I am one of [many](https://twitter.com/kenjilopezalt/status/1295630888600928258) who suffer from speech [fluency disorder](https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/). How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and filler words in my natural speech, and it is a lot worse when I am speaking under pressure or are being recorded.
+Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's [wav2vec](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec) has achieved 2.43 WER in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, or people with a thick accent. 
+
+I am one of [many](https://twitter.com/kenjilopezalt/status/1295630888600928258) who suffer from speech [fluency disorder](https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/). How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and filler words in my natural speech, and it is a lot worse when I am speaking under pressure or being recorded.
+
+# FIXME: I wanted to suggest linking to https://en.wikipedia.org/wiki/Filler_(linguistics) for "filler words", but it's not currently a very elegant explanation
 
 Here is a speech sample of me introducing myself, just to give you a flavor.
 
 <audio controls>
-<source src="/media/short_intro.wav">
+<source src="{static}/media/short_intro.wav">
 Audio element failed...
 </audio>
+# FIXME: I think adding the "{static}" may fix the audio file problem here and below, but please check that
 
 
 You can hear lots of uh's and um's in my speech. While I have been work towards accepting my speech pattern and rolling with it, it does cause some inconvenience in my life. For example:
@@ -32,7 +37,7 @@ I tried out a few different ASR models to transcribe what I was saying on the au
 
 For easier comparison, here is the manual transcription of my speech:
 
-> Hi my name is Shaomei Wu and I um worked at Facebook. Um my research is at the intersection of um AI and um accessibility. So I try to build empowering AI, um, technology for marginalized communities. 
+> Hi my name is Shaomei Wu and I, um, worked at Facebook. Um, my research is at the intersection of, um, AI and, um, accessibility. So I try to build empowering AI, um, technology for marginalized communities. 
 
 ### wav2vec
 
@@ -93,7 +98,7 @@ After finding all the start and end times for "AM" in the wav2vec transcription,
 Here is the result auto-tuned audio. You can noticed that most of the filler words are gone.
 
 <audio controls>
-<source src="/media/de_filler_short_intro.wav">
+<source src="{static}/media/de_filler_short_intro.wav">
 Audio element failed...
 </audio>
 
@@ -104,7 +109,7 @@ The similar technique can be used to automatically edit a video to cut out the p
 - [Original Video]({static}/media/intro_video_short.mp4)
 
 <video controls height="400">
-<source src="/media/intro_video_short.mp4" type="video/mp4">
+<source src="{static}/media/intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
@@ -112,7 +117,7 @@ Video rendering failed...
 - [Auto-tuned Video]({static}/media/autotuned_intro_video_short.mp4)
 
 <video controls height="400">
-<source src="/media/autotuned_intro_video_short.mp4" type="video/mp4">
+<source src="{static}/media/autotuned_intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
@@ -127,7 +132,7 @@ Some extra steps to make this work are:
 3. Cut the original video.
 
 
-Note that this type of close-up video is probably not the best demo for this technique, I expect it works better for more static videos like a slide show or instruction videos.
+Note that this type of close-up video is probably not the best demo for this technique, I expect it works better for more static videos like slide shows or instructional videos.
 
 ## Resources 
 

@@ -115,13 +115,16 @@ AIMPOWER            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's <a href="https://github.com/pytorch/fairseq/tree/master/examples/wav2vec">wav2vec</a> has achieved 2.43 WER in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, and people with a thick accent. </p>
-<p>I am one of <a href="https://twitter.com/kenjilopezalt/status/1295630888600928258">many</a> who suffer from speech <a href="https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/">fluency disorder</a>. How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and filler words in my natural speech, and it is a lot worse when I am speaking under pressure or are being recorded.</p>
+                <h1>FIXME: Explain acronym throughout? SOTA, WER, ASR, ...</h1>
+<p>Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's <a href="https://github.com/pytorch/fairseq/tree/master/examples/wav2vec">wav2vec</a> has achieved 2.43 WER in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, or people with a thick accent. </p>
+<p>I am one of <a href="https://twitter.com/kenjilopezalt/status/1295630888600928258">many</a> who suffer from speech <a href="https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/">fluency disorder</a>. How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and filler words in my natural speech, and it is a lot worse when I am speaking under pressure or being recorded.</p>
+<h1>FIXME: I wanted to suggest linking to https://en.wikipedia.org/wiki/Filler_(linguistics) for "filler words", but it's not currently a very elegant explanation</h1>
 <p>Here is a speech sample of me introducing myself, just to give you a flavor.</p>
 <p><audio controls>
 <source src="/media/short_intro.wav">
 Audio element failed...
 </audio></p>
+<h1>FIXME: I think adding the "{static}" may fix the audio file problem here and below, but please check that</h1>
 <p>You can hear lots of uh's and um's in my speech. While I have been work towards accepting my speech pattern and rolling with it, it does cause some inconvenience in my life. For example:</p>
 <ul>
 <li>Speech-based AI interfaces have trouble understanding me;</li>
@@ -133,7 +136,7 @@ Audio element failed...
 <p>I tried out a few different ASR models to transcribe what I was saying on the audio clip above. </p>
 <p>For easier comparison, here is the manual transcription of my speech:</p>
 <blockquote>
-<p>Hi my name is Shaomei Wu and I um worked at Facebook. Um my research is at the intersection of um AI and um accessibility. So I try to build empowering AI, um, technology for marginalized communities. </p>
+<p>Hi my name is Shaomei Wu and I, um, worked at Facebook. Um, my research is at the intersection of, um, AI and, um, accessibility. So I try to build empowering AI, um, technology for marginalized communities. </p>
 </blockquote>
 <h3>wav2vec</h3>
 <p>I used the pretrained wav2vec2-base-960h model as documented <a href="https://github.com/pytorch/fairseq/blob/master/examples/wav2vec/README.md#use-wav2vec-20-with-transformers">here</a>. And here is the result:</p>
@@ -202,7 +205,7 @@ Video rendering failed...
 <p>Cut the original video.</p>
 </li>
 </ol>
-<p>Note that this type of close-up video is probably not the best demo for this technique, I expect it works better for more static videos like a slide show or instruction videos.</p>
+<p>Note that this type of close-up video is probably not the best demo for this technique, I expect it works better for more static videos like slide shows or instructional videos.</p>
 <h2>Resources</h2>
 <p>The code for producing the results can be found in this <a href="https://colab.research.google.com/drive/1jn8oTaEJRMl9PEKi7jj8zfwnxctxox8u?usp=sharing">notebook</a>. </p>
             </div>
