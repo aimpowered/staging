@@ -64,4 +64,4 @@ PLUGIN_PATHS = ['/Users/shaomeiwu/git/pelican-plugins',]
 PLUGINS = ['i18n_subsites', ]
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
-GOOGLE_ANALYTICS = "G-M3LGTJPH39"
+GOOGLE_ANALYTICS_UNIVERSAL = "UA-207012400-1"
