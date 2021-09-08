@@ -9,7 +9,7 @@
 
 
 
-<link rel="canonical" href="/blog/atypical-speech-autotune.html">
+<link rel="canonical" href="https://AImpower.org/blog/atypical-speech-autotune.html">
 
         <meta name="author" content="Shaomei Wu" />
         <meta name="keywords" content="Speech-impediment,ASR,wav2vec,kaldi" />
@@ -18,7 +18,7 @@
         <meta property="og:site_name" content="AIMPOWER" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Speech recognition and enhancement for atypical speech"/>
-        <meta property="og:url" content="/blog/atypical-speech-autotune.html"/>
+        <meta property="og:url" content="https://AImpower.org/blog/atypical-speech-autotune.html"/>
         <meta property="og:description" content="I play with a few state-of-the-art speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency."/>
         <meta property="article:published_time" content="2021-03-28" />
             <meta property="article:section" content="Blog" />
@@ -31,11 +31,11 @@
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="/theme/css/bootstrap.lumen.min.css" type="text/css"/>
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://AImpower.org/theme/css/bootstrap.lumen.min.css" type="text/css"/>
+    <link href="https://AImpower.org/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <link href="https://AImpower.org/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://AImpower.org/theme/css/style.css" type="text/css"/>
 
 
 
@@ -51,19 +51,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">
+            <a href="https://AImpower.org/" class="navbar-brand">
 AIMPOWER            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="/pages/about-us.html">
+                         <li><a href="https://AImpower.org/pages/about-us.html">
                              About Us
                           </a></li>
                         <li class="active">
-                            <a href="/category/blog.html">Blog</a>
+                            <a href="https://AImpower.org/category/blog.html">Blog</a>
                         </li>
                         <li >
-                            <a href="/category/demo.html">Demo</a>
+                            <a href="https://AImpower.org/category/demo.html">Demo</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -84,7 +84,7 @@ AIMPOWER            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/blog/atypical-speech-autotune.html"
+                    <a href="https://AImpower.org/blog/atypical-speech-autotune.html"
                        rel="bookmark"
                        title="Permalink to Speech recognition and enhancement for atypical speech">
                         Speech recognition and enhancement for atypical speech
@@ -105,13 +105,13 @@ AIMPOWER            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="/tag/speech-impediment.html">Speech-impediment</a>
+	<a href="https://AImpower.org/tag/speech-impediment.html">Speech-impediment</a>
         /
-	<a href="/tag/asr.html">ASR</a>
+	<a href="https://AImpower.org/tag/asr.html">ASR</a>
         /
-	<a href="/tag/wav2vec.html">wav2vec</a>
+	<a href="https://AImpower.org/tag/wav2vec.html">wav2vec</a>
         /
-	<a href="/tag/kaldi.html">kaldi</a>
+	<a href="https://AImpower.org/tag/kaldi.html">kaldi</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -119,7 +119,7 @@ AIMPOWER            </a>
 <p>I am one of <a href="https://twitter.com/kenjilopezalt/status/1295630888600928258">many</a> who suffer from speech <a href="https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/">fluency disorder</a>. How it manifests varies widely for individuals, but as for me, it results in a lot of pauses/breaks and <a href="https://en.wikipedia.org/wiki/Speech_disfluency#Fillers">filler words</a> in my natural speech, and it is a lot worse when I am speaking under pressure or being recorded.</p>
 <p>Here is a speech sample of me introducing myself, just to give you a flavor.</p>
 <p><audio controls>
-<source src="/media/short_intro.wav">
+<source src="https://AImpower.org/media/short_intro.wav">
 Audio element failed...
 </audio></p>
 <p>You can hear lots of uh's and um's in my speech. While I have been work towards accepting my speech pattern and rolling with it, it does cause some inconvenience in my life. For example:</p>
@@ -169,24 +169,24 @@ Audio element failed...
 <p>After finding all the start and end times for "AM" in the wav2vec transcription, it is easy to programmatically edit out all these timeframes from the original audio through python. </p>
 <p>Here is the result auto-tuned audio. You can noticed that most of the filler words are gone.</p>
 <p><audio controls>
-<source src="/media/de_filler_short_intro.wav">
+<source src="https://AImpower.org/media/de_filler_short_intro.wav">
 Audio element failed...
 </audio></p>
 <h2>Auto-tuning Video with Atypical Speech</h2>
 <p>The similar technique can be used to automatically edit a video to cut out the part with filler words, as shown in this example below.</p>
 <ul>
-<li><a href="/media/intro_video_short.mp4">Original Video</a></li>
+<li><a href="https://AImpower.org/media/intro_video_short.mp4">Original Video</a></li>
 </ul>
 <video controls height="400">
-<source src="/media/intro_video_short.mp4" type="video/mp4">
+<source src="https://AImpower.org/media/intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
 <ul>
-<li><a href="/media/autotuned_intro_video_short.mp4">Auto-tuned Video</a></li>
+<li><a href="https://AImpower.org/media/autotuned_intro_video_short.mp4">Auto-tuned Video</a></li>
 </ul>
 <video controls height="400">
-<source src="/media/autotuned_intro_video_short.mp4" type="video/mp4">
+<source src="https://AImpower.org/media/autotuned_intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
@@ -227,13 +227,13 @@ Video rendering failed...
       </div>
    </div>
 </footer>
-<script src="/theme/js/jquery.min.js"></script>
+<script src="https://AImpower.org/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/theme/js/bootstrap.min.js"></script>
+<script src="https://AImpower.org/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="/theme/js/respond.min.js"></script>
+<script src="https://AImpower.org/theme/js/respond.min.js"></script>
 
 
     <!-- Google Analytics Universal -->
