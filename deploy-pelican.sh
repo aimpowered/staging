@@ -6,19 +6,20 @@ set -ex
 function generate() {
 	pelican Pelican/content -s Pelican/pelicanconf.py -o docs -d
 	rm docs/index.html
+	echo 'aimpower.org' >> docs/CNAME
 	ln -s pages/about-us.html docs/index.html
 }
 
 function deploy() {
 	git checkout main
-	git add --all
+	git add docs/ --all
 	git commit -m "updating pelican outputs"
 	git push origin main
 }
 
 function main() {
 	generate
-	# deploy
+	deploy
 }
 
 main "$@"
