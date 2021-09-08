@@ -1,6 +1,7 @@
 Title: About Us
 Authors: Shaomei Wu
 Date: 2020-11-08
+save_as: index.html
 
 AImpower.org is a tech non-profit that is dedicated to build innovative,
 empowering AI technologies **for** and **with** marginalized communities.

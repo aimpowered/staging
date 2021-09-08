@@ -3,7 +3,7 @@
 
 AUTHOR = 'Shaomei Wu'
 SITENAME = 'AIMPOWER'
-SITEURL = ''
+SITEURL = 'https://AImpower.org'
 
 PATH = 'content'
 ARTICLE_PATHS = ['blog','demo']

@@ -5,9 +5,7 @@ set -ex
 
 function generate() {
 	pelican Pelican/content -s Pelican/pelicanconf.py -o docs -d
-	rm docs/index.html
 	echo 'aimpower.org' >> docs/CNAME
-	ln -s pages/about-us.html docs/index.html
 }
 
 function deploy() {
