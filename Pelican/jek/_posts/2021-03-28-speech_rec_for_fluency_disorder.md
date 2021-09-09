@@ -1,11 +1,13 @@
-Title: Speech recognition and enhancement for atypical speech
+---
+layout: default
+title: "Speech recognition and enhancement for atypical speech"
 Date: 2021-03-28
 Modified: 2021-03-28
 Category: Blog
 Tags: Speech-impediment, ASR, wav2vec, kaldi
-slug: blog/atypical-speech-autotune
 Authors: Shaomei Wu
-Summary: I play with a few state-of-the-art speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency.
+Summary: "I play with a few state-of-the-art speech recognition models with my own speech sample and find a way to auto-tune my own speech to reduce disfluency."
+---
 
 Speech recognition technology has progressed a lot in recent years, especially when using modern deep learning techniques. While new models such as Facebook AI Research's [wav2vec](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec) has achieved 2.43 WER (Word Error Rate) in research benchmark dataset, their performance usually tanks when processing atypical speech, such as, speech by people with fluency disorder, stuttering, people who are deaf or hard of hearing, or people with a thick accent. 
 
@@ -14,7 +16,7 @@ I am one of [many](https://twitter.com/kenjilopezalt/status/1295630888600928258)
 Here is a speech sample of me introducing myself, just to give you a flavor.
 
 <audio controls>
-<source src="{static}/media/short_intro.wav">
+<source src="/assets/media/short_intro.wav">
 Audio element failed...
 </audio>
 
@@ -93,7 +95,7 @@ After finding all the start and end times for "AM" in the wav2vec transcription,
 Here is the result auto-tuned audio. You can noticed that most of the filler words are gone.
 
 <audio controls>
-<source src="{static}/media/de_filler_short_intro.wav">
+<source src="/assets/media/de_filler_short_intro.wav">
 Audio element failed...
 </audio>
 
@@ -101,18 +103,18 @@ Audio element failed...
 
 The similar technique can be used to automatically edit a video to cut out the part with filler words, as shown in this example below.
 
-- [Original Video]({static}/media/intro_video_short.mp4)
+- [Original Video](/assets/media/intro_video_short.mp4)
 
 <video controls height="400">
-<source src="{static}/media/intro_video_short.mp4" type="video/mp4">
+<source src="/assets/media/intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
 
-- [Auto-tuned Video]({static}/media/autotuned_intro_video_short.mp4)
+- [Auto-tuned Video](/assets/media/autotuned_intro_video_short.mp4)
 
 <video controls height="400">
-<source src="{static}/media/autotuned_intro_video_short.mp4" type="video/mp4">
+<source src="/assets/media/autotuned_intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
