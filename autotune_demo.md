@@ -9,7 +9,7 @@ summary: "A demo for autotuning my own speech in audio and video to reduce disfl
 Original audio recording of speech with disfluency:
 
 <audio controls>
-<source src="/assets/media/short_intro.wav">
+<source src="assets/media/short_intro.wav">
 Audio element failed...
 </audio>
 
@@ -20,7 +20,7 @@ Original transcription (there are lots of um's):
 Autotuned version:
 
 <audio controls>
-<source src="/assets/media/de_filler_short_intro.wav">
+<source src="assets/media/de_filler_short_intro.wav">
 Audio element failed...
 </audio>
 
@@ -28,10 +28,10 @@ Audio element failed...
 
 Original video recording of me speaking (12 sec):
 
-<!-- - [Original Video, 12sec](/assets/media/intro_video_short.mp4) -->
+<!-- - [Original Video, 12sec](assets/media/intro_video_short.mp4) -->
 
 <video controls height="400">
-<source src="/assets/media/intro_video_short.mp4" type="video/mp4">
+<source src="assets/media/intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
@@ -39,10 +39,10 @@ Video rendering failed...
 
 Autotuned version (10 sec):
 
-<!-- - [Auto-tuned Video, 10sec](/assets/media/autotuned_intro_video_short.mp4) -->
+<!-- - [Auto-tuned Video, 10sec](assets/media/autotuned_intro_video_short.mp4) -->
 
 <video controls height="400">
-<source src="/assets/media/autotuned_intro_video_short.mp4" type="video/mp4">
+<source src="assets/media/autotuned_intro_video_short.mp4" type="video/mp4">
 Video rendering failed...
 </video>
 
