@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "About Us"
+title: "About Us (now Jekyll)"
 ---
 
 AImpower.org is a tech non-profit that is dedicated to build innovative,
