@@ -1,8 +1,10 @@
 ---
 layout: default
-title: "Use AI to autotune audio and videos with atypical speech"
+title: Demo
 summary: "A demo for autotuning my own speech in audio and video to reduce disfluency."
 ---
+
+# Use AI to autotune audio and videos with atypical speech
 
 ## Auto-tuning Audio with Speech Disfluency
 
